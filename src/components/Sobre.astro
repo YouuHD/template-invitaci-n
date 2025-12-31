@@ -1,0 +1,96 @@
+---
+---
+
+<section
+  class="relative h-[200vh] flex items-start justify-center"
+  id="envelope-section"
+>
+  <!-- Contenedor fijo durante el scroll -->
+  <div
+    class="sticky top-0 h-screen flex items-center justify-center"
+  >
+    <div
+      id="envelope"
+      class="relative w-[320px] h-[220px]"
+    >
+      <!-- Parte trasera del sobre -->
+      <div
+        class="absolute inset-0 bg-[#fdfbf9] rounded-lg shadow-xl"
+      ></div>
+      <!-- Tapa del sobre -->
+      <div
+        id="flap"
+        class="absolute top-0 left-0 w-full h-full origin-top bg-[#efe9e1]"
+        style="clip-path: polygon(0 0, 50% 55%, 100% 0);"
+      ></div>
+
+      <!-- Sello de cera -->
+      <div
+        id="seal"
+        class="absolute top-1/2 left-1/2 w-14 h-14 bg-emerald-700 rounded-full
+               -translate-x-1/2 -translate-y-1/2 z-20
+               flex items-center justify-center text-white text-xl shadow-lg"
+      >
+        🌸
+      </div>
+
+      <!-- Carta -->
+      <div
+        id="letter"
+        class="absolute bottom-0 left-1/2 w-[90%] h-[160%]
+               bg-white rounded-lg shadow-md
+               -translate-x-1/2 translate-y-full z-10"
+      >
+        <div class="p-4 text-center text-emerald-700 font-serif">
+          <p class="text-sm">Mis</p>
+          <p class="text-2xl font-bold">XV Años</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#envelope-section",
+      start: "top top",
+      end: "bottom top",
+      scrub: true,
+      pin: true,
+    },
+  });
+
+  tl
+    // Rompe el sello
+    .to("#seal", {
+      scale: 0,
+      opacity: 0,
+      duration: 0.3,
+    })
+    // Abre la tapa
+    .to(
+      "#flap",
+      {
+        rotateX: -180,
+        transformOrigin: "top center",
+        duration: 0.6,
+      },
+      "<"
+    )
+    // Sale la carta
+    .to(
+      "#letter",
+      {
+        y: "-65%",
+        duration: 1,
+      },
+      "<"
+    );
+</script>

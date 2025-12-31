@@ -1,6 +1,7 @@
 ---
 import "../../styles/global.css";
 
+
 interface Props {
   title?: string;
 }
@@ -8,14 +9,20 @@ interface Props {
 const { title } = Astro.props
 ---
 <!DOCTYPE html>
-<html lang="mxn">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
   </head>
-  <body>
-
+  <body class=" min-h-screen flex flex-col items-center justify-center gap-6 p-6">
     <slot />
   </body>
 </html>
+
+<style>
+
+  body{
+    background: #d0e1ab;
+  }
+</style>
