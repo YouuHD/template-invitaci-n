@@ -4,6 +4,9 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
 }
+body.locked {
+  overflow: hidden;
+}
 
 #envelope {
     /* position: relative;
@@ -55,6 +58,7 @@ body {
 }
 
 #letter {
+
     opacity: 0;
     position: absolute;
     bottom: 0;
@@ -67,6 +71,8 @@ body {
     z-index: 2;
     /* box-shadow: 0 30px 60px rgba(0,0,0,.25); */
     overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 
 }
 
@@ -124,3 +130,4 @@ h1 {
         height: 140%;
     }
 }
+

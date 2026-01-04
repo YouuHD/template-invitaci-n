@@ -13,16 +13,20 @@ const { title } = Astro.props
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class=" min-h-screen flex flex-col items-center justify-center gap-6 p-6">
-    <slot />
+  <body class=" min-h-screen flex flex-col items-center justify-center ">
+    <div id="app">
+      <slot />
+    </div>
+    
   </body>
 </html>
 
 <style>
 
   body{
-    background: #d0e1ab;
+    background: #93C572;
   }
 </style>
