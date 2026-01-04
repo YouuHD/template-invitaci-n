@@ -9,6 +9,7 @@
       <div id="seal">🌸</div>
       <div id="letter" >
         <div class="letter-content">
+            <!-- Hacer que venga del archivo JSON -->
             <p class="small">MIS</p>
             <h1>XV AÑOS</h1>
             <p class="name">Paulina</p>
@@ -18,10 +19,19 @@
   </div>
 </section>
 
-
+<section 
+    id="content" 
+    class="min-h-screen w-screen flex items-center justify-center"
+    hidden>
+    <slot/>
+</section>
 
 <script>
     import gsap from "gsap";
+
+    const intro = document.getElementById("intro");
+    const content = document.getElementById("content");
+
     const idle = gsap.to("#envelope", {
         y: -8,
         scale: 1.015,
@@ -38,9 +48,21 @@
         ease: "sine.inOut"
     });
 
-    const tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({ 
+        paused: true, 
+        onComplete: () => {
+                // Ocultamos intro
+        intro.hidden = true;
+
+        // Mostramos contenido
+        content.hidden = false;
+
+        // Scroll arriba por seguridad
+        window.scrollTo(0, 0);
+        }});
 
     tl
+
         .to("#seal", {
             scale: 0,
             opacity: 0,
@@ -76,8 +98,14 @@
             boxShadow: "0 -10px 30px rgba(0,0,0,0.1)",
             duration: 0.8,
         })
-
-    .to("#envelope", { opacity: 0 });
+        .to("#envelope", {
+        opacity: 0,
+        pointerEvents: "none",
+        })
+        // .to("#envelope", { opacity: 0 })
+        // .to("#intro", {
+        //     opacity: 0
+        // });
         let started = false;
 
         window.addEventListener("scroll", () => {
@@ -88,16 +116,7 @@
             tope.style.zIndex = "2";
             idle.kill();
             tl.play();
-        }
-    }, { passive: true });
-
-
+            
+        }}, { passive: true });
 </script>
-<style>
-    
-
-
-
-
-</style>
 
