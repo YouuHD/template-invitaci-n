@@ -1,0 +1,10 @@
+---
+interface Props{
+    lado?: string;
+}
+const { lado } = Astro.props
+---
+<div
+
+    class= { lado == "1" ? "arco arco-1 absolute w-[55vw] h-[25vh] max-w-lg border-2 md:border-3 border-[#D4AF37] rotate-[30deg] rounded-[1rem] md:rounded-[3rem] opacity-60 z-30 md:w-[85vw] md:h-[65vh] top-[20%]" : "arco arco-2 absolute w-[55vw] h-[25vh] max-w-lg border-2 md:border-3 border-[#D4AF37] rotate-[60deg] rounded-[1rem] md:rounded-[3rem] opacity-40 z-30 md:w-[85vw] md:h-[65vh] top-[20%]"}
+>

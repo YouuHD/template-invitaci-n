@@ -21,12 +21,12 @@
 
 <section 
     id="content" 
-    class="min-h-screen w-screen flex items-center justify-center"
+    class=""
     hidden>
     <slot/>
 </section>
 
-<script>
+<script > 
     import gsap from "gsap";
 
     const intro = document.getElementById("intro");
@@ -52,13 +52,14 @@
         paused: true, 
         onComplete: () => {
                 // Ocultamos intro
-        intro.hidden = true;
+            intro.hidden = true;
 
-        // Mostramos contenido
-        content.hidden = false;
+            // Mostramos contenido
+            content.hidden = false;
 
-        // Scroll arriba por seguridad
-        window.scrollTo(0, 0);
+            // Scroll arriba por seguridad
+            window.scrollTo(0, 0);
+
         }});
 
     tl

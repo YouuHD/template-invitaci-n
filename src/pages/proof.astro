@@ -1,0 +1,96 @@
+---
+import Layout from "./layouts/Layout.astro"
+import Card from "../components/Card.astro"
+---
+<Layout>
+
+    <section
+    id="Wish"
+    class="relative min-h-screen px-6 py-24 z-40 text-center"
+>
+    <h1 class="card_anim font-['Pinyon_Script'] text-7xl mb-10">Mensajitos</h1>
+    <p id="card_anim #regalo" class="font-['Playfair_Display'] italic mb-5">
+        Mensajes que te mandaron las personas que te quieren ♥
+    </p>
+    <p id="card_anim #regalo" class="font-['Playfair_Display'] italic mb-5">
+        También hice algunas pruebas aquí por si se ven detallitos xd
+    </p>
+
+    <audio id="bg-music" src="music/cancion.mp3" preload="auto"></audio>
+    <button id="music-btn" class="music-btn" >
+  🎵 Activar música
+</button>
+<button onclick="
+  const a = new Audio('/music/cancion.mp3');
+  a.play();
+">
+  TEST AUDIO
+</button>
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 mt-14 max-w-7xl mx-auto ">
+        <!-- Cards -->
+        
+            <Card up="Cosas de" title="Harry Potter"/>
+            <Card up="Cosas de" title="Hufflepuff"/>
+            <Card up="Cosas de" title="Voleibol"/>
+            <Card up="Cosas de" title="Olivia Rodrigo"/>
+            <Card up="Cosas de" title="Sabrina Carpenter"/>
+            <Card up="Discos de" title="Música"/>
+            <Card up="Cosas de" title="KATSEYE"/>
+            <Card up="Libros de" title="Saga Empíreo"/>
+            <Card up="Libros de" title="Saga Crepúsculo"/>
+            <Card up="Libros de" title="Saga Juegos del Hambre"/>
+            <Card up="Libros de" title="Culpa mía"/>
+            <Card up="Cosas de" title="Wicked"/>
+            <Card up="Unas" title="Flores"/>
+            <Card up="Libros de" title="Romance"/>
+        
+    </div>
+</section>
+
+</Layout>
+
+
+<style>
+    @keyframes show {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.card-anim {
+  /* estado inicial */
+  opacity: 0;
+  transform: scale(0.85) translateY(20px);
+
+  view-timeline-name: --card;
+  view-timeline-axis: block;
+
+  animation-name: show;
+  animation-timeline: --card;
+  animation-fill-mode: both;
+  animation-range: entry 20% cover 40%;
+}
+
+</style>
+<script lang="ts">
+  const btn = document.getElementById("music-btn") ;
+  const audio = document.getElementById("bg-music") ;
+
+  btn.addEventListener("click", async () => {
+    try {
+      audio.volume = 0.4;
+      await audio.play(); // 👈 clave
+      btn.style.display = "none";
+      console.log("🎶 Reproduciendo");
+    } catch (err) {
+      console.error("No se pudo reproducir:", err);
+    }
+  });
+</script>
+
+

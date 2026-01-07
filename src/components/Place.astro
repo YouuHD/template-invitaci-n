@@ -1,0 +1,74 @@
+---
+import Button from "./Button.astro"
+---
+<!-- class="absolute min-h-screen  z-50 px-4 md:px-6 py-20 opacity-0 mt-60 mx-20" -->
+<section id="lugar"  class="relative min-h-screen px-4 md:px-6 py-20">
+  <!-- Capa animada -->
+   <div  class="absolute inset-0 flex items-center justify-center z-50 opacity-0">
+      <div class="w-full max-w-6xl mx-auto text-center">
+      <h2 id="titulo_Lugar" class="z-10 font-['Pinyon_Script'] text-4xl md:text-6xl text-(--gold) opacity-0" >
+        Lugares del evento
+      </h2>
+      <p id="texto_Lugar" class="z-10 mt-4 tracking-wide font-['Playfair_Display'] italic opacity-0" >
+        Acompáñanos en cada momento especial
+      </p>
+      <!-- Cards -->
+
+      <!-- grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto mt-10  -->
+      <div id="cards_Lugar" class="w-full ml-0 mt-20 flex items-center justify-center">
+        <!-- Ceremonia -->
+        <div class="card-escena1 min-h-screen flex items-center justify-center z-50 opacity-0 px-4">
+          <div class="bg-white rounded-3xl border border-[#D4AF37]/50 shadow-lg p-10 w-full max-w-xl md:max-w-2xl flex flex-col items-center text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+            <span class="uppercase tracking-widest text-sm text-(--gold) font-['Playfair_Display'] italic">
+              Ceremonia religiosa
+            </span>
+
+            <h3 class="mt-4 text-2xl md:text-3xl font-serif text-(--gold) font-['Playfair_Display'] italic" >
+              Templo de San Agustín
+            </h3>
+            <Button id="btn_Map1" label="Ver Ubicación"/>
+
+
+            <!-- Mapa -->
+            <div class="mt-6 w-full overflow-hidden rounded-2xl" id="map-ceremonia" hidden>
+              <iframe class="w-full h-64 border-0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2806.7431717441777!2d-104.67539266887862!3d24.024547926558895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc83d82791453%3A0x35337ffc3b4c1cb5!2sTemplo%20de%20San%20Agust%C3%ADn!5e0!3m2!1ses!2smx!4v1767475531430!5m2!1ses!2smx"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class=" card-escena2 min-h-screeh-screen flex items-center justify-center z-50 opacity-0 hidden" >
+          <div class="bg-white rounded-3xl border border-[#D4AF37]/50 shadow-lg p-10 w-full max-w-xl md:max-w-2xl flex flex-col items-center text-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+            <span class="uppercase tracking-widest text-sm text-(--gold) font-['Playfair_Display'] italic" >
+              Recepción
+            </span>
+            <h3 class="mt-4 text-2xl md:text-3xl font-serif font-['Playfair_Display'] italic text-(--gold)" >
+              Salón de eventos Casa Real
+            </h3>
+
+            <Button id="btn_Map2" label="Ver Ubicación"/>
+            <!-- Mapa -->
+            <div class="mt-6 w-full overflow-hidden rounded-2xl" id="map-recepcion" hidden >
+              <iframe class="w-full h-64 border-0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.5641335153396!2d-104.69513702597025!3d24.0111639784934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc86fc2a41f33%3A0x406f069b83db4534!2sCasa%20Real!5e0!3m2!1ses!2smx!4v1767650837785!5m2!1ses!2smx" ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+    
+</section>
+
+<script>
+  const boton_Mapa1 = document.getElementById("btn_Map1");
+  const mapa1 = document.getElementById("map-ceremonia");
+  const boton_Mapa2 = document.getElementById("btn_Map2");
+  const mapa2 = document.getElementById("map-recepcion");
+  boton_Mapa1.addEventListener("click", () => {
+    console.log("btn1")
+    mapa1.hidden = false;
+  });
+
+  boton_Mapa2.addEventListener("click", () => {
+    mapa2.hidden = false;
+    console.log("btn2")
+  });
+</script>

@@ -1,0 +1,46 @@
+---
+interface Props{
+    id?: string;
+    title?: string;
+    intro?: string;
+    parrafo?: string;
+    parrafo2?: string;
+    name_1?: string;
+    name_2?: string;
+    padrino?: string;
+    madrina?: string;
+}
+
+const {
+    id, title, intro , parrafo , parrafo2 , name_1 , name_2, padrino , madrina
+} = Astro.props
+---
+
+    <img src="src/quince.png" id="quince-img" class="quince absolute bottom-[-4rem] md:bottom-[-20rem] left-1/2 -translate-x-1/2 w-72 md:w-96 z-40" />
+
+    <!-- Texto introductorio -->
+    <div id={id} class="texto-info w-[90%] max-w-lg mx-auto opacity-0 text-center text-right md:text-left font-['Playfair_Display'] italic" >
+        
+        <h2 class="text-lg md:text-2xl leading-tight mb-4 mr-8">
+            {intro}
+        </h2>
+        <p class="text-lg md:text-2xl mb-4 mr-8">
+            {parrafo}
+                
+        </p>
+        <h2 class="text1x1 md:text-2xl mr-8">
+            {parrafo2}
+        </h2>
+        <p class="text-1xl font-semibold text-(--gold) mr-8">
+            {name_1} & {name_2}
+        </p>
+        <p class="uppercase tracking-widest text-sm mb-2 mr-8">Mis Padres</p>
+
+        <p class="text-1xl font-semibold text-(--gold) mr-8">
+            {padrino} & {madrina} 
+        </p>
+        <p class="uppercase tracking-widest text-sm mb-2 mr-8">
+            Mis Madrinas
+        </p>
+    </div>
+

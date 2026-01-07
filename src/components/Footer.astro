@@ -1,0 +1,173 @@
+<!-- <footer class="relative min-h-screen flex flex-col items-center justify-center p-10 bg-white z-50 reveal mt-10 text-center">
+  holaa
+
+</footer> -->
+
+---
+const hoy = new Date().getFullYear();
+const redes = [
+  { nombre: 'Instagram', url: 'https://instagram.com/drawart_0204/', icon: '<i class="fa-brands fa-instagram"></i>' },
+  { nombre: 'LinkedIn', url: 'https://www.linkedin.com/in/luis-daniel-payan-rivera-655425306/', icon: '<i class="fa-brands fa-linkedin"></i>' },
+  { nombre: 'Email', url: 'mailto:daniel.payan.contacto@gmail.com', icon: '<i class="fa-regular fa-envelope"></i>' },{
+    nombre: 'GitHub' , url: 'https://github.com/YouuHD' , icon: '<i class="fa-brands fa-github"></i>'
+  }
+];
+---
+
+<footer class="footer-personal">
+  <div class="footer-content">
+    
+    <div class="bio">
+      <div class="avatar">
+        <span><img src="./img/logo.png"></span> 
+      </div>
+      <div class="texto">
+        <h3>Hecho por Daniel Payan "YouuHD"</h3>
+        <p>Diseñando experiencias digitales con ❤️</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <p class="social-title">Encuéntrame en:</p>
+      <div class="links-grid">
+        {redes.map(red => (
+          <a href={red.url} target="_blank" rel="noopener noreferrer" title={red.nombre}>
+            <span class="icon" set:html={red.icon} />
+            <span class="label">{red.nombre}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {hoy} — Diseñado con calma tras largas noches ✨</p>
+  </div>
+</footer>
+
+<style>
+  .footer-personal {
+    background: #fafafa; /* Un gris casi blanco muy limpio */
+    padding: 4rem 1.5rem 2rem;
+    border-top: 1px solid #eee;
+    margin-top: 5rem;
+    color: #333;
+  }
+
+  .footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  /* Estilo Bio */
+  .bio {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+  }
+
+  .avatar {
+    font-size: 2rem;
+    background: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .avatar img{
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  .texto h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .texto p {
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  /* Estilo Redes Sociales */
+  .social-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .links-grid a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #444;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+  }
+
+  .links-grid a:hover {
+    border-color: #6366f1;
+    color: #6366f1;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+  }
+
+  .icon {
+    font-size: 1.1rem;
+  }
+
+  /* Footer inferior */
+  .footer-bottom {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+    
+    .bio {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .links-grid {
+      justify-content: center;
+    }
+  }
+</style>

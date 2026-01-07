@@ -1,0 +1,153 @@
+---
+interface Props {
+  images: string[];
+}
+const { images } = Astro.props;
+---
+
+<div class="carrusel-wrapper m-color[##f4f7f2] mx-auto">
+  <div class="carrusel-container" id="carrusel">
+    {images.map((src, index) => (
+      <div class="carrusel-item">
+        <img src={src} alt={`Imagen ${index + 1}`} loading="lazy" />
+      </div>
+    ))}
+  </div>
+
+  <button class="nav-btn prev" id="prevBtn" aria-label="Anterior">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="nav-btn next" id="nextBtn" aria-label="Siguiente">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <div class="dots-container">
+    {images.map((_, i) => <span class={`dot ${i === 0 ? 'active' : ''}`}></span>)}
+  </div>
+</div>
+
+<style>
+  .carrusel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    
+    padding: 0 1rem;
+  }
+
+  .carrusel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
+    padding: 20px 0;
+  }
+
+  .carrusel-container::-webkit-scrollbar {
+    display: none; /* Oculta scroll en Chrome/Safari */
+  }
+
+  .carrusel-item {
+    flex: 0 0 80%; /* En móvil se ve una y un pedazo de la otra */
+    scroll-snap-align: center;
+    aspect-ratio: 1 / 1; /* Cuadradas como Instagram */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    background: white;
+    padding: 10px; /* El borde blanco de la imagen que pediste */
+  }
+
+  /* Desktop: Mostrar 3 imágenes o contraer */
+  @media (min-width: 768px) {
+    .carrusel-item {
+      flex: 0 0 calc(33.33% - 14px);
+    }
+  }
+
+  .carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Botones Estilo Imagen */
+  .nav-btn {
+    display: none; /* Ocultos en móvil */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #333;
+    color: white;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    transition: scale 0.2s;
+  }
+
+  .nav-btn:hover { scale: 1.1; }
+  .prev { left: -10px; }
+  .next { right: -10px; }
+
+  @media (min-width: 768px) {
+    .nav-btn { display: flex; }
+  }
+
+  /* Indicadores */
+  .dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    transition: all 0.3s;
+  }
+
+  .dot.active {
+    background: var(--gold);
+    width: 20px;
+    border-radius: 10px;
+  }
+</style>
+
+<script>
+  const carrusel = document.getElementById('carrusel');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const dots = document.querySelectorAll('.dot');
+
+  if (carrusel && prevBtn && nextBtn) {
+    const scrollAmount = () => carrusel.querySelector('.carrusel-item').clientWidth + 20;
+
+    nextBtn.addEventListener('click', () => {
+      carrusel.scrollLeft += scrollAmount();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      carrusel.scrollLeft -= scrollAmount();
+    });
+
+    // Actualizar puntos activos al hacer scroll
+    carrusel.addEventListener('scroll', () => {
+      const index = Math.round(carrusel.scrollLeft / scrollAmount());
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    });
+  }
+</script>
