@@ -1,17 +1,192 @@
 @import "tailwindcss";
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Animaciones flores */
 
-body {
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes sway {
+    0%,
+    100% {
+      transform: rotate(-2deg);
+    }
+    50% {
+      transform: rotate(2deg);
+    }
+  }
+
+  .animate-sway {
+    animation: sway 8s ease-in-out infinite;
+  }
+
+  @keyframes organic {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+      transform: translate(4px, -6px) rotate(1deg);
+    }
+    66% {
+      transform: translate(-4px, 4px) rotate(-1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+
+  .animate-organic {
+    animation: organic 10s ease-in-out infinite;
+  }
+  #cards_Lugar {
+    overflow: hidden; /* Evita que se vea la tarjeta que viene abajo antes de tiempo */
+  }
+
+  .card-escena {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  /* Solo para que la primera tarjeta no se encime al cargar */
+  .card-escena:not(:first-child) {
+    opacity: 0;
+  }
+
+  :root {
+    --green-dark: #064e3b;
+    --green: #065f46;
+    --green-light: #d1fae5;
+    --gold: #d4af37;
+    --paper: #fffaf3;
+    --paper-dark: #efe9e1;
+    --green-xv: #e7feea;
+    --pink-xv: #fde2e7;
+}
+
+@keyframes show {
+  from{
+    opacity: 0;
+    transform: translateX(-100px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px)
+  }
+}
+
+.card_anim{
+  animation: show linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 40%;
+
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+}
+
+.photo-frame {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+
+  aspect-ratio: 3 / 5; /* retrato elegante */
+  overflow: hidden;
+  border-radius: 1.5rem;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.navbar {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  z-index: 50;
+}
+
+.navbar button {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.navbar button:hover {
+  background: rgba(0,0,0,.05);
+}
+
+.navbar button.active {
+  background: black;
+  color: white;
+}
+
+.separator {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  /* El color de fondo debe ser el mismo de la sección de ARRIBA */
+  background-color: #f4f7f2; 
+}
+
+  .separator svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px; /* Ajusta la altura a tu gusto */
+  }
+
+  .separator path {
+    /* El color del 'dibujo' debe ser el mismo del fondo del CARRUSEL */
+    fill: #eff5ed; 
+  }
+
+/* body {
     overflow-x: hidden;
     overflow-y: auto;
 }
 body.locked {
   overflow: hidden;
-}
+} */
 
-#envelope {
-    /* position: relative;
-    width: min(90vw, 360px);
-    height: calc(width * 0.66); */
+/* #envelope {
+
     position: relative;
     width: clamp(280px, 90vw, 360px);
     aspect-ratio: 3 / 2;
@@ -43,7 +218,7 @@ body.locked {
     left: 50%;
     width: 56px;
     height: 56px;
-    /* background: #065f46; */
+    
     border-radius: 999px;
     transform: translate(-50%, -50%);
     display: grid;
@@ -55,9 +230,9 @@ body.locked {
         0 6px 12px rgba(0, 0, 0, .35),
         inset 0 2px 4px rgba(255, 255, 255, .2);
     font-size: 22px;
-}
+} */
 
-#letter {
+/* #letter {
 
     opacity: 0;
     position: absolute;
@@ -69,7 +244,7 @@ body.locked {
     transform: translate(-50%, 100%);
     border-radius: 12px;
     z-index: 2;
-    /* box-shadow: 0 30px 60px rgba(0,0,0,.25); */
+    
     overflow: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -101,16 +276,10 @@ h1 {
     font-size: 20px;
 }
 
-:root {
-    --green-dark: #064e3b;
-    --green: #065f46;
-    --green-light: #d1fae5;
-    --gold: #d4af37;
-    --paper: #fffaf3;
-    --paper-dark: #efe9e1;
-}
+
 
 /* Responsivo */
+/*
 @media(min-width:360px) {
     #envelope {
         width: 70vw;
@@ -130,4 +299,4 @@ h1 {
         height: 140%;
     }
 }
-
+ */

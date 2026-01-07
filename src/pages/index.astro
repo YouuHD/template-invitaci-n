@@ -2,11 +2,60 @@
 import Layout from "./layouts/Layout.astro";
 import Prueba from "../components/prueba.astro";
 import Content from "../components/Content.astro"
+import FloatButton from "../components/FloatButton.astro";
 ---
 
 <Layout title="Invitación XV de Pau">
-  <Prueba>
-    <Content/>
-  </Prueba>
+  <!-- <Prueba> -->
+  <FloatButton id="btnMusic" label="">
+    🎵 <i class="fa-solid fa-play"></i>
+  </FloatButton>
+  <FloatButton id="upside-down" label="" side="left">
+    <i class="fa-solid fa-arrow-down"></i>
+  </FloatButton>
+    
+
+   <audio id="bg-music" src="music/cancion.mp3"  loop></audio>
+  <Content/>
+  <!-- </Prueba> -->
 
 </Layout>
+
+<script is:inline>
+const audio = document.getElementById("bg-music");
+const btnMusic = document.getElementById("btnMusic")
+
+let isPlaying = false;
+
+btnMusic.addEventListener("click", async () => {
+  try {
+    if (!isPlaying) {
+      await audio.play();
+      audio.volume = 0.6;
+      btnMusic.innerHTML = `🎵 <i class="fa-solid fa-pause"></i>`;
+      isPlaying = true;
+    } else {
+      audio.pause();
+      btnMusic.innerHTML = `🎵 <i class="fa-solid fa-play"></i>`;
+      isPlaying = false;
+    }
+  } catch (err) {
+    console.warn("El navegador bloqueó el audio:", err);
+  }
+})
+window.addEventListener("pagehide", () => audio.pause());
+window.addEventListener("beforeunload", () => audio.pause());
+
+// const startMusic = () => {
+//   audio.volume = 0.4;
+//   audio.play();
+//   mensaje1.style.opacity="0"
+
+//   window.removeEventListener("click", startMusic);
+//   window.removeEventListener("scroll", startMusic);
+// };
+
+// window.addEventListener("click", startMusic);
+// window.removeEventListener("scroll", startMusic);
+
+</script>

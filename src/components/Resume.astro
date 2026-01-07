@@ -1,0 +1,21 @@
+---
+import Card from "../components/Card.astro"
+import ContainerGrid from "./ContainerGrid.astro"
+
+interface Props{
+    id?:string;
+    title?:string;
+}
+
+const { id , title } = Astro.props
+---
+<!-- //Aquí mostraré el resumen de todo lo que hice para que ya no regresen -->
+<div id={id}>
+    <div class=" min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+        <h1 class="font-['Pinyon_Script'] text-7xl mt-34 mb-5">{title}</h1>
+        <div class="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 mt-8 max-w-7xl  top-20">
+            <slot/>
+        </div>
+    </div>
+    
+</div>

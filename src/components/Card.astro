@@ -1,0 +1,24 @@
+---
+interface Props {
+  title?: string;
+  up?: string;
+  id?: string;
+  tipo?:number;
+  children?:any
+  class?:string;
+}
+
+const { title , up , id , children , tipo ,class:className} = Astro.props
+
+---
+<div  class={` group relative flex flex-col items-center justify-center p-8 rounded-3xl border border-[#D4AF37] bg-white/70 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#D4AF37]/10 ${className ?? ""}`}>
+    
+    <span class="uppercase tracking-widest-[0.25em] text-sm text-(--gold) font-['Playfair_Display'] italic">
+        {up}
+    </span>
+    <h3 class="mt-4 text-2xl font-serif text-(--gold) font-['Playfair_Display'] italic">
+        {title}
+    </h3>
+    <slot/>
+    
+</div>

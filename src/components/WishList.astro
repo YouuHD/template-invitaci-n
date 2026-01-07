@@ -1,0 +1,89 @@
+---
+import Card from "../components/Card.astro"
+import ContainerGrid from "./ContainerGrid.astro"
+---
+
+<section id="Wish" class="absolute min-h-screen flex flex-col items-center  p-5 z-40 mt-5 top-0 text-center opacity-0">
+    <h1 id="txt_Wish" class="font-['Pinyon_Script'] text-7xl mt-34 opacity-0">Wish List</h1>
+    <p id="regalo" class="font-['Playfair_Display'] italic opacity-0 text-emerald-900">
+        El mejor regalo para mí es tu presencia.
+    </p>
+    <p id="regalo2" class="font-['Playfair_Display'] italic opacity-0 text-emerald-900 mb-4">
+        Pero si gustas darme algún obsequio y no lo tienes claro todavía, te
+        dejo las siguientes opciones:
+    </p>
+    <section class="snap-section opacity-0 mt-4">
+        <!-- <div class="inner-scroll grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 mt-8 max-w-7xl  top-20 "> -->
+        <!-- Cards -->
+        <ContainerGrid id="Card1" class="opacity-0">
+            <Card up="Cosas de" title="Harry Potter" class="card_anim"/>
+            <Card up="Cosas de" title="Hufflepuff" class="card_anim"/>
+        </ContainerGrid>
+        <ContainerGrid id="Card2" class="opacity-0">
+            <Card up="Cosas de" title="Voleibol" class="card_anim"/>
+            <Card up="Cosas de" title="Olivia Rodrigo" class="card_anim"/>
+        </ContainerGrid >
+        <ContainerGrid id="Card3" class="opacity-0">
+            <Card up="Cosas de" title="Sabrina Carpenter" class="card_anim"/>
+            <Card up="Discos de" title="Música" class="card_anim"/>
+        </ContainerGrid>
+        
+        <ContainerGrid id="Card4" class="opacity-0">
+            <Card up="Cosas de" title="KATSEYE" class="card_anim"/>
+            <Card up="Libros de" title="Saga Empíreo" class="card_anim"/>
+        </ContainerGrid>    
+
+        <ContainerGrid id="Card5" class="opacity-0">
+            <Card up="Libros de" title="Saga Crepúsculo" class="card_anim"/>
+            <Card up="Libros de" title="Saga Juegos del Hambre" class="card_anim"/>
+        </ContainerGrid>
+        <ContainerGrid id="Card6" class="opacity-0">
+            <Card up="Libros de" title="Culpa mía" class="card_anim"/>
+            <Card up="Cosas de" title="Wicked" class="card_anim"/>
+        </ContainerGrid>
+        <ContainerGrid id="Card7" class="opacity-0">
+            <Card up="Unas" title="Flores" class="card_anim"/>
+            <Card up="Libros de" title="Romance" class="card_anim"/>
+        </ContainerGrid>
+            
+        <!-- </div> -->
+    </section>
+        
+    
+</section>
+
+
+<!-- <style>
+    /* Sección que "atrapa" el scroll */
+.snap-section {
+  height: 50vh;
+  
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Scroll interno */
+.inner-scroll {
+  height: 100%;
+  overflow-y: auto;
+  padding: 4rem 1.5rem;
+ 
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain; /* CLAVE */
+}
+
+/* Cada card */
+.card-anim {
+  scroll-snap-align: start;
+  margin-bottom: 2rem;
+}
+
+.inner-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.inner-scroll::-webkit-scrollbar-thumb {
+  background: rgba(212,175,55,.4);
+  border-radius: 999px;
+}
+</style> -->

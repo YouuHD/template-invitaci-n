@@ -1,0 +1,70 @@
+---
+interface Props{
+    id?:string,
+    title?: string;
+    subtitle?: string;
+    form?: JSON;
+
+}
+const {id, title, subtitle, form } = Astro.props
+---
+<div id={id}
+      class="max-w-lg mx-auto bg-white/80 backdrop-blur rounded-2xl shadow-lg p-8"
+    >
+      <h2 class="text-6xl font-['Pinyon_Script'] text-(--gold) text-center mb-2">
+        Confirmar asistencia
+      </h2>
+
+      <p class="font-['Playfair_Display'] text-center text-gray-600 mb-8">
+        Será un honor contar con tu presencia 💖
+      </p>
+
+      <form class="space-y-5">
+        <!-- Nombre -->
+        <div>
+          <label class="block text-sm mb-1 text-gray-700">Nombre completo</label
+          >
+          <input
+            type="text"
+            placeholder="Tu nombre"
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            required
+          />
+        </div>
+
+        <!-- Asistencia -->
+        <div>
+          <label class="block text-sm mb-1 text-gray-700"
+            >¿Podrás acompañarnos?</label
+          >
+          <select
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            required
+          >
+            <option value="">Selecciona una opción</option>
+            <option value="si">Sí, ahí estaré 💃</option>
+            <option value="no">No podré asistir 😢</option>
+          </select>
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <label class="block text-sm mb-1 text-gray-700"
+            >Mensaje (opcional)</label
+          >
+          <textarea
+            rows="3"
+            placeholder="Escribe un mensaje bonito ✨"
+            class="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+          ></textarea>
+        </div>
+
+        <!-- Botón -->
+        <button
+          type="submit"
+          class="w-full mt-4 bg-emerald-700 hover:bg-emerald-800 text-white py-3 rounded-xl font-medium tracking-wide transition"
+        >
+          Confirmar asistencia 💌
+        </button>
+      </form>
+    </div>
