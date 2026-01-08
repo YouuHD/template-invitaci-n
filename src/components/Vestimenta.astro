@@ -9,18 +9,18 @@ interface Props{
 const { id, texto , color1, color2, } = Astro.props
 ---
 
-<section id={id} class="absolute min-h-screen flex flex-col items-center justify-center p-10 z-40 reveal mt-10 text-center opacity-0">
-    <h1 id="titulo_vest"
-        class="font-['Pinyon_Script'] text-7xl mb-8 mt-12 opacity-0">
+<section id={id} class=" flex flex-col items-center justify-center p-10 z-40  mt-10 text-center ">
+    <h1 
+        class="font-['Pinyon_Script'] text-7xl mb-8 mt-12 text-(--gold)">
         Código de vestimenta
     </h1>
-    <h2 id="sbt_vest" class="font-['Pinyon_Script'] text-5xl opacity-0">
+    <h2  class="font-['Pinyon_Script'] text-5xl ">
         Formal
     </h2>
-    <h2 id="reservado" class="font-['Playfair_Display'] italic opacity-0">
+    <h2  class="font-['Playfair_Display'] italic ">
         {texto}
     </h2>
-    <div id="colores" class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-8 mt-6 opacity-0">
+    <div class="grid grid-cols-2 md:flex md:justify-center gap-4 md:gap-8 mt-6 ">
         <div id="color_Quince"  class="rounded-full bg-[#e7feea] border-[#a1b1a3] border-2 w-14 h-14">
         </div>
         <div id="color_Dama"class="rounded-full bg-[#fde2e7] border-[#afa0a2] border-2 w-14 h-14"

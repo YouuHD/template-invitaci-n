@@ -1,0 +1,33 @@
+---
+import Button from "./Button.astro"
+import Card from "./Card.astro"
+
+---
+<section class="min-h-screen flex flex-col items-center z-50 mt-5 text-center">
+    <h2 class="font-['Pinyon_Script'] text-7xl my-10 text-(--gold)">
+        Lugares del evento
+    </h2>
+    <p class="font-['Playfair_Display'] italic text-emerald-900">
+        Acompáñanos en cada momento especial
+    </p>
+    <section class="snap-section1 mt-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-6 mt-8 max-w-7xl  top-20">
+            <Card class="card-escena1" up="Ceremonia Religiosa" title="Templo de San Agustín">
+                <Button id="btn_Map1" label="Ver Ubicación"/>
+                <!-- Mapa -->
+                <div class="mt-6 w-full overflow-hidden rounded-2xl" id="map-ceremonia" hidden>
+                    <iframe class="w-full h-64 border-0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2806.7431717441777!2d-104.67539266887862!3d24.024547926558895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc83d82791453%3A0x35337ffc3b4c1cb5!2sTemplo%20de%20San%20Agust%C3%ADn!5e0!3m2!1ses!2smx!4v1767475531430!5m2!1ses!2smx"></iframe>
+                </div>
+            </Card>
+            <Card class="card-escena2" up="Recepción" title="Salón de Eventos Casa Real">
+                <Button id="btn_Map2" label="Ver Ubicación"/>
+                <!-- Mapa -->
+                <div class="mt-6 w-full overflow-hidden rounded-2xl" id="map-recepcion" hidden >
+                    <iframe class="w-full h-64 border-0" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3644.5641335153396!2d-104.69513702597025!3d24.0111639784934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bc86fc2a41f33%3A0x406f069b83db4534!2sCasa%20Real!5e0!3m2!1ses!2smx!4v1767650837785!5m2!1ses!2smx" ></iframe>
+                </div>
+            </Card>
+        </div>
+
+    </section>
+
+</section>
