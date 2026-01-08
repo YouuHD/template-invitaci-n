@@ -1,0 +1,435 @@
+---
+import Carrusel from "./Carrusel.astro";
+import Resume from "./Resume.astro"
+import Card from "./Card.astro";
+import Pilar from "./Pilar.astro"
+import Form from "./Form.astro";
+import Footer from "./Footer.astro";
+import AnimContainer from "./AnimContainer.astro"
+import Portada from "./Portada.astro";
+import Arco from "./Arco.astro";
+import Date2 from "./Date2.astro"
+import Places2 from "./Places2.astro";
+import Contador from "./Contador.astro";
+import Vestimenta from "./Vestimenta.astro";
+import WishList from "./WishList.astro";
+import Despedida from "./Despedida.astro";
+import Pictures from "./Pictures.astro"
+import ScrollReveal from "./ScrollReveal.astro"
+
+const misFotos = [
+  "/img/foto1.jpeg",
+  "/img/foto2.jpeg",
+  "/img/foto3.jpeg",
+  "/img/foto4.jpeg",
+  "/img/foto5.jpeg"
+];
+---
+
+<main id="mainContainer" class="text-[#556B2F]">
+    
+        <section id="portada" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#eff5ed]">
+            <AnimContainer title="XV años" nombre="Ángela Paulina">
+                <div class="absolute flex items-center justify-center w-full h-full">
+                    <!-- Arcos -->
+                    <Arco lado="1" />
+                    <Arco lado="2" />
+                    <div class="relative min-h-screen w-full flex items-center justify-center overflow-hidden p-5">
+                        <Portada 
+                            id="texto-info"
+                            title="quince"
+                            intro="Con la bendición de Dios y el amor de mi familia, me siento muy feliz de llegar a este momento de mi vida"
+                            parrafo="¡Los invito a compartir conmigo este día tan especial!"
+                            parrafo2="En compañía de mis seres queridos"
+                            name_1="Luis Gerardo García González"
+                            name_2="Sandra Elizabeth López Agüero"
+                            padrino="Verónica del Rocío López Agüero"
+                            madrina="Deisy Griselda López Agüero"
+                        />  
+                    </div>
+                    
+                </div>
+            </AnimContainer>
+        </section>
+
+
+        <div class="separator ">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <ScrollReveal animation="fade-up">
+            <section id="fechaPage" class="bg-[#f4f7f2] m-[#f4f7f2] contenedor  card_anim">
+            <!-- Fecha del evento -->
+                <Date2/>
+            </section>
+        </ScrollReveal>
+        
+        <ScrollReveal animation="fade-in">
+        <section id="placePage contenedor  card_anim">
+            <Places2/>
+        </section>
+        </ScrollReveal>
+        
+        <ScrollReveal animation="scale-up">
+            <secton id="timer contenedor  card_anim">
+                <Contador />
+            </secton>
+        </ScrollReveal>
+
+        <ScrollReveal animation="scale-up">
+            <section id="picturesPage contenedor">
+                <Pictures/>
+            </section>
+        </ScrollReveal>
+
+        <ScrollReveal animation="fade-in">
+            <section id="codePage contenedor">
+                <Vestimenta
+                    id="codigo"
+                    texto="Colores reservados para la Quinceñera y sus damas"
+                />
+
+            </section>
+        </ScrollReveal>
+
+        <ScrollReveal animation="fade-up">
+
+        <section id="wishPage" class="bg-[#eff5ed] contenedor">
+            <WishList/>
+        </section>
+
+        </ScrollReveal>
+
+        <ScrollReveal animation="scale-up">
+            <section id="Eseramos" class="bg-[#eff5ed] contenedor">
+                <Despedida 
+                    id="mensaje-final"/>
+            </section>
+        </ScrollReveal>
+        
+
+        
+    
+    
+    
+
+    
+    <div class="separator">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+    </svg>
+    </div>
+
+        <ScrollReveal animation="fade-in">
+            <section class="bg-[#f4f7f2]">
+                <Carrusel images={misFotos}/>
+            </section>
+        </ScrollReveal>
+    
+
+        <Pilar/>
+        
+        <ScrollReveal animation="scale-up">
+            <section id="get_in_touch" class="bg-[#f4f7f2]  mt-4">
+                <Form/>
+            </section>
+        </ScrollReveal>
+
+    <Footer >
+    </Footer>
+    
+    
+
+
+    <nav class="navbar" hidden>
+        <button ><a href="#portada">Inicio</a></button>
+        <button ><a href="#fechaPage">Fecha</a></button>
+        <button ><a href="#placePage">Lugar</a></button>
+        <button ><a href="#picturesPage">Fotos</a></button>
+        <button ><a href="#wishPage">WishList</a></button>
+        <button ><a href="#get_in_touch">Confirmar</a></button>
+    </nav>
+    
+</main>
+
+<style>
+    @keyframes mostrar{
+        from {
+            opacity: 0;
+            scale: 25%;
+        }
+        to{
+            opacity: 1;
+            scale: 100%;
+        }
+    }
+    .contenedor{
+        view-timeline-name: --revealing-image ;
+        animation-name:show;
+        animation-fill-mode: both;
+        animation-timeline: ---revealing-image;
+
+        animation-range: entry 25% cover 50%;
+    }
+    .contenedor {
+        animation: zoomIn 700ms ease-in-out forwards;
+    }
+    @keyframes zoomIn{
+        0%{
+            opacity: 1;
+            transform: scale(0.3);
+        }50%{
+            opacity: 1;
+            transform: scale(1.2);
+        }100%{
+            opacity: 1;
+            transform:translateX(1);
+        }
+    }
+
+</style>
+
+<script>
+
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 800px)", () => {
+      // Animaciones para escritorio
+      gsap.to(".imagen", {
+        scrollTrigger: ".imagen",
+        x: 100,
+      });
+    });
+
+    mm.add("(max-width: 799px)", () => {
+      // Animaciones para móvil
+      gsap.to(".imagen", {
+        scrollTrigger: ".imagen",
+        x: 20,
+      });
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+    
+
+    window.addEventListener("load", () => {
+      const tl2 = gsap.timeline({
+        defaults: {
+          ease: "power3.out",
+        },
+      });
+
+      // Estado inicial (no visible)
+      gsap.set("#texto-portada", { opacity: 0, scale: 0.5 });
+      gsap.set(".arco", { rotate: -90, opacity: 0 });
+      gsap.set(".butterfly", { opacity: 0 });
+      gsap.set("#f-tl, #f-tr", { y: -120, opacity: 0 });
+      gsap.set(".fixed.bottom-0", { y: 120, opacity: 0 });
+      gsap.set(".quince", { y: 200, opacity: 0, scale: 0.95 });
+      tl2
+        // Flores superiores
+        .to("#f-tl, #f-tr", {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.1,
+        })
+
+        // Flores inferiores
+        .to(
+          ".fixed.bottom-0",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.1,
+          },
+          "-=0.8",
+        )
+
+        // Arcos girando
+        .to(
+          ".arco-1",
+          {
+            rotate: 30,
+            opacity: 0.6,
+            duration: 1.4,
+          },
+          "-=0.6",
+        )
+        .to(
+          ".arco-2",
+          {
+            rotate: 60,
+            opacity: 0.4,
+            duration: 1.4,
+          },
+          "-=1.2",
+        )
+
+        // Texto creciendo desde el centro
+        .to(
+          "#texto-portada",
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1.4,
+          },
+          "-=1",
+        )
+        .to(
+          "#quince-img",
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 1.6,
+            ease: "power4.out",
+          },
+          "-=0.8",
+        )
+
+        // Mariposas desde esquinas
+        .fromTo(
+          ".butterfly",
+          {
+            x: (i) => (i % 2 === 0 ? -100 : 100),
+            y: (i) => (i % 2 === 0 ? -100 : 100),
+            opacity: 0,
+          },
+          {
+            x: 0,
+            y: 0,
+            opacity: 0.7,
+            duration: 1.2,
+            
+          },
+          "-=1",
+        );
+    });
+    // Timeline con scroll (reversible)
+    const scrollTl = gsap.timeline({
+      paused: true,
+      scrollTrigger: {
+        trigger: "#portada",
+        start: "top top",
+        end: "+=100%",
+        scrub: 2,
+        pin: true,
+      },
+    });
+
+    mm.add(
+      {
+        // Definimos nuestros breakpoints
+        isDesktop: "(min-width: 800px)",
+        isMobile: "(max-width: 799px)",
+      },
+      (context) => {
+        let { isDesktop, isMobile } = context.conditions;
+        //Inicio animación
+        scrollTl
+          // Arcos: giran y se desvanecen
+          .to(
+            ".arco",
+            {
+              rotate: "+=90",
+              opacity: 0,
+              ease: "power3.inOut",
+            },
+            0,
+          )
+
+          // Texto + corona
+          .to(
+            "#texto-portada",
+            {
+              scale: 0.85,
+              y: isDesktop ? "-35vh" : "-13vh",
+              ease: "power3.inOut",
+              color: "#D4AF37",
+            },
+            0,
+          )
+          .to("#txt-xv", {
+            fontSize: isMobile ? "var(--text-4xl)" : "var(--text-6xl)",
+          })
+
+          // Mariposas flotan y se van
+          .to(
+            ".butterfly",
+            {
+              opacity: 0,
+              y: -80,
+              rotate: 15,
+              stagger: 0.1,
+              ease: "sine.inOut",
+            },
+            0,
+          )
+
+          // Quince se mueve a la izquierda
+          .to(
+            "#quince-img",
+            {
+              x: isDesktop ? "-30vw" : "-40vw",
+              y: isDesktop ? "-15vw" : "5vw",
+              ease: "power3.inOut",
+            },
+            0,
+          )
+
+          // Texto del siguiente section entra
+          .to(
+            ".texto-info",
+            {
+              startAt: { x: window.innerWidth < 768 ? 20 : 100 },
+              opacity: 1,
+              x: isDesktop ? "35%" : "10%",
+              top: isDesktop ? "20%" : 0,
+              y: isDesktop ? "25%" : "5%",
+              ease: "power3.inOut",
+              duration: 1,
+            },
+            0.5,
+          )
+          .to({}, { duration: 1 })
+        })
+    //Contador
+    const targetDate = new Date("Jan 24, 2026 20:00:00").getTime();
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+      if (diff <= 0) return;
+      //Error, convertir a string
+      document.getElementById("days").innerText = Math.floor(
+        diff / (1000 * 60 * 60 * 24),
+      ).toString();
+      document.getElementById("hours").innerText = Math.floor(
+        (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+      ).toString();
+      document.getElementById("mins").innerText = Math.floor(
+        (diff % (1000 * 60 * 60)) / (1000 * 60),
+      ).toString();
+      document.getElementById("segs").innerText = Math.floor(
+        (diff % (1000 * 60)) / 1000,
+      ).toString();
+    }, 1000);
+
+    const boton_Mapa1 = document.getElementById("btn_Map1");
+    const mapa1 = document.getElementById("map-ceremonia");
+    const boton_Mapa2 = document.getElementById("btn_Map2");
+    const mapa2 = document.getElementById("map-recepcion");
+    boton_Mapa1.addEventListener("click", () => {
+      mapa1.hidden = false;
+    });
+    boton_Mapa2.addEventListener("click", () => {
+      mapa2.hidden = false;
+    });
+
+
+</script>

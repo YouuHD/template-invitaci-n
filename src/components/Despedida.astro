@@ -8,15 +8,12 @@ interface Props{
 const { id, texto  } = Astro.props
 ---
 
-<section id={id} class="absolute min-h-screen flex flex-col items-center justify-center p-10 z-40 reveal mt-10 text-center opacity-0">
-    <h1 id="titulo_desp"
-        class="font-['Pinyon_Script'] text-7xl mb-8 mt-12 opacity-0">
+<section id={id} class=" flex flex-col items-center justify-center p-20 z-40 text-center">
+    <h1 class="font-['Pinyon_Script'] text-7xl mb-8 mt-12 text-(--gold)">
         ¡Te esperamos!
     </h1>
-    <!-- <h2 id="sbt_despedida" class="font-['Pinyon_Script'] text-5xl opacity-0">
-        Formal
-    </h2> -->
-    <h2 id="despedida" class="font-['Playfair_Display'] italic opacity-0">
+
+    <h2 class="font-['Playfair_Display'] italic ">
         {texto}
     </h2>
 
